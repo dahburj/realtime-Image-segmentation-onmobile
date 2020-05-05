@@ -13,15 +13,15 @@ There are a few ways to increase inference time:
    * If making custom models try to use as less layers as possible.
       Decreasing depth of the model decreases the inference time more than decreasing the width of the model.
 
-## QUICK START
+## Quick start
 
 Run the model on an image by runnning below command.
 ```
-python demo.py --image_path "test_image.jpg" --color 255 0 0 --output_path "output.jpg"
+python demo.py --image_path test_image.jpg --color 255 0 0 --output_path output.jpg
 ```
 
 
-## TRAINING
+## Training
 
   1. Download the dataset from [here](https://github.com/switchablenorms/CelebAMask-HQ) and extract in `data` folder.
   2. Run `convert_data.py` to process the data.
