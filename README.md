@@ -46,3 +46,9 @@ I have done speed profiling of this model on **Oneplus 7** using [tensorflow ben
 <p align="center">
   <img src='media/profile.png' width="1000" height="400">
 </p>
+
+## Reference
+
+* [Real-time Hair segmentation and recoloring on Mobile GPUs](https://sites.google.com/view/perception-cv4arvr/hair-segmentation)
+
+* [Mobile Real-time Video Segmentation](https://ai.googleblog.com/2018/03/mobile-real-time-video-segmentation.html)
