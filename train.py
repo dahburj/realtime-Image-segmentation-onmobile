@@ -22,8 +22,8 @@ PATH = "./data"
 TRAIN_CSV = "train.csv"
 TEST_CSV = "valid.csv"
 
-WEIGHT_FILENAME = "hair_segmentation_mobile.h5"
-INPUT_SIZE = 160
+WEIGHT_FILENAME = "hair_segmentation_mobile_big.h5"
+INPUT_SIZE = 224
 BATCH_SIZE = 32
 
 
@@ -66,11 +66,13 @@ def train():
 
     train_generator = DataGenerator(train_df,
                                     BATCH_SIZE,
+                                    input_size=INPUT_SIZE,
                                     path='',
                                     is_valid=False)
 
     valid_generator = DataGenerator(test_df,
                                     BATCH_SIZE*2,
+                                    input_size=INPUT_SIZE,
                                     path='',
                                     is_valid=True)
 
