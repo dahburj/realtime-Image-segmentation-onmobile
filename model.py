@@ -24,9 +24,9 @@ def conv_pw(x, filters, name='layer'):
     return x
 
 
-def get_upblock(x, mm, layer_name, name='4'):
+def upblock(x, mobilenet, layer_name, name='4'):
 
-    y = mm.get_layer(name=layer_name).output
+    y = mobilenet.get_layer(name=layer_name).output
     y = conv_pw(y, 32, name='upblock_'+name)
 
     x = layers.UpSampling2D(size=(2, 2))(x)
@@ -40,19 +40,19 @@ def get_upblock(x, mm, layer_name, name='4'):
 def segmentation_model(input_shape=(160, 160, 3), numclass=2):
 
     input_layer = layers.Input(shape=input_shape)
-    mm = MobileNet(weights="imagenet", alpha=0.25,
-                   input_tensor=input_layer, include_top=False)
+    mobilenet = MobileNet(weights="imagenet", alpha=0.5,
+                          input_tensor=input_layer, include_top=False)
 
-    for layer in mm.layers:
+    for layer in mobilenet.layers:
         layer.trainable = True
 
     # Defining custom decoder which is fast and small
-    cn = conv_pw(mm.output, filters=32, name='mobile_bottleneck')
+    bn = conv_pw(mobilenet.output, filters=32, name='mobile_bottleneck')
 
-    x = get_upblock(cn, mm, 'conv_pw_11_relu', name='4')
-    x = get_upblock(x, mm, 'conv_pw_5_relu', name='3')
-    x = get_upblock(x, mm, 'conv_pw_3_relu', name='2')
-    x = get_upblock(x, mm, 'conv_pw_1_relu', name='1')
+    x = upblock(bn, mobilenet, 'conv_pw_11_relu', name='4')
+    x = upblock(x, mobilenet, 'conv_pw_5_relu', name='3')
+    x = upblock(x, mobilenet, 'conv_pw_3_relu', name='2')
+    x = upblock(x, mobilenet, 'conv_pw_1_relu', name='1')
 
     x = layers.UpSampling2D(size=(2, 2))(x)
 

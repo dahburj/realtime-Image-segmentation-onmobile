@@ -41,7 +41,7 @@ python demo.py --image_path test_image.jpg --color 255 0 0 --output_path output.
 
 ## Speed Profiling
 
-I have done speed profiling of this model on **Oneplus 7** using [tensorflow benchmark tool](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark). You can see this model takes average of **8.3 ms** i.e it runs at **120 fps**.
+I have done speed profiling of this model on **Oneplus 7** using [tensorflow benchmark tool](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/tools/benchmark). You can see this model takes average of **18.1 ms** per image i.e it runs at **55 fps**.
 
 <p align="center">
   <img src='media/profile.png' width="1000" height="400">

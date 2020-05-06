@@ -22,8 +22,8 @@ PATH = "./data"
 TRAIN_CSV = "train.csv"
 TEST_CSV = "valid.csv"
 
-WEIGHT_FILENAME = "hair_segmentation_mobile_big.h5"
-INPUT_SIZE = 224
+WEIGHT_FILENAME = "hair_segmentation_mobile.h5"
+INPUT_SIZE = 192
 BATCH_SIZE = 32
 
 
