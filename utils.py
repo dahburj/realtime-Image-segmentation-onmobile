@@ -35,6 +35,8 @@ def apply_color(image, mask, color_rgb=[255, 0, 0]):
     color = color/255.
     if mask.shape[:2] != image.shape[:2]:
         mask = resize_mask(image, mask)
+    if mask.ndim == 2:
+        mask = np.expand_dims(mask, -1)
     background = image*(1-mask)
     foreground = (mask*image)*color_rgb
     return np.clip(foreground + background, 0, 1)
