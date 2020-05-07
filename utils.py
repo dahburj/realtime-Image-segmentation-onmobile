@@ -38,3 +38,11 @@ def apply_color(image, mask, color_rgb=[255, 0, 0]):
     background = image*(1-mask)
     foreground = (mask*image)*color_rgb
     return np.clip(foreground + background, 0, 1)
+
+
+def display_image(im, figsize=None, ax=None, alpha=None, cmap=None):
+    if not ax:
+        fig, ax = plt.subplots(figsize=figsize)
+    ax.imshow(im, alpha=alpha, cmap=cmap)
+    ax.set_axis_off()
+    return ax

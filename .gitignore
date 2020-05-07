@@ -118,3 +118,7 @@ outputs/*.jpg
 /misc
 
 !/data/README.md
+
+#weights
+/weights/*
+!/weights/readme.txt
