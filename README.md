@@ -1,4 +1,4 @@
-# realtime-hair-segmentation
+# realtime-Image-segmentation
 
 ## Introduction
 
